@@ -1,0 +1,70 @@
+<div class="profilBody">
+    <div class="BGBody">
+        <div class="container ">
+            <div class="titleLoc">
+                <h1>{{userConnect.prenom}}'s profil</h1>
+                <div class="float-right"><img src='{{"../../assets/images/Users/"+userConnect.id+"/"+userConnect.prenom+".jpg"}}' alt="Profile Picture"></div>
+            </div>
+            <div class="row ml-5 p-4">
+                <div class="col-sm ">
+                    <div class="card cardLoc" style="width: 25rem;">
+                        <div class="card-body mt-3">
+                            <h5 class="card-title">Ajout de biens</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Ajoutez vos appart, maison, cabanes, tout se loue
+                                sur Paris !</h6>
+                            <p class="card-text">En ajoutant un bien, vous permettez aux locataires candidats de trouver
+                                leur nid douillet.</p>
+                            <div class="linkLoc">
+                                <a (click)="openModalAjBien()" class="card-link">Ajouter un appartement</a>
+                                <a (click)="openModalAjMaison()" class="card-link">Ajouter une maison</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm ">
+                    <div class="card cardLoc" style="width: 22rem;">
+                        <div class="card-body mt-5">
+                            <h5 class="card-title">Liste des matchs</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Retrouvez ici tous vos matchs et leur statut
+                            </h6>
+                            <p class="card-text">Retrouvez l'historique de tous vos matchs.
+                            </p>
+                            <div class="linkLoc">
+                                <a *ngIf="!matchs" (click)="openModalMatchs()" class="card-link">Matchs</a>
+                                <a href="#" class="card-link">Historique</a>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="row p-3">
+                <div class="cardBien">
+                    <div class="card cardLoc" style="width: 22rem;">
+                        <div class="card-body mt-3">
+                            <h5 class="card-title">Mes biens</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Visionnez vos biens </h6>
+                            <p class="card-text">Faites un petit tour d'horizon de l'ensemble de vos biens possibles à
+                                la location sur notre site.
+                                Vous pouurez également préciser s'ils sont encore disponibles.</p>
+                            <div class="linkLoc">
+                                <a (click)="openModalEnsembleBien()" class="card-link">Les voir</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+</div>

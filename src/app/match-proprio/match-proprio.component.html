@@ -1,0 +1,47 @@
+<div class="container">
+
+    <div class="row text-center">
+        <div class="col">    
+            <h1>Vos Matchs</h1>
+        </div>
+    </div>
+
+    <div class="row text-center mt-3 md-3" *ngIf="matchsAppart[0]">
+        <div class="col">    
+            <h4>Pour Vos Appartements</h4>
+        </div>
+    </div>
+
+    <div class="row center">
+        <div class="col" *ngFor="let m of matchsAppart">
+            <div class="card" style="width: 14rem;">
+                <img src='{{"../../assets/images/Users/"+m.id.locataire.id+"/"+m.id.locataire.prenom+".jpg"}}' class="card-img-top" alt="photo match">
+                <div class="card-header text-center center">
+                    <h3 class="card-title"><b>Profil locataire</b></h3>
+                    <h5 class="card-title">{{m.id.locataire.prenom}} {{m.id.locataire.nom}}</h5>
+                    <h5 class="card-title">{{m.id.locataire.mail}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row text-center mt-3 md-3" *ngIf="matchsMaison[0]">
+        <div class="col">    
+            <h4>Pour Vos Maisons</h4>
+        </div>
+    </div>
+
+    <div class="row center">
+        <div class="col" *ngFor="let m of matchsMaison">
+            <div class="card" style="width: 18rem;">
+                <img src="../../assets/images/ron.webp" class="card-img-top" alt="photo ron">
+                <div class="card-header center">
+                    <h3 class="card-title text-center"><b>Profil locataire</b></h3>
+                    <h5 class="card-title">{{m.id.locataire.prenom}} {{m.id.locataire.nom}}</h5>
+                    <h5 class="card-title">{{m.id.locataire.mail}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

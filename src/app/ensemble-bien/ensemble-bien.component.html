@@ -1,0 +1,124 @@
+<div class="container">
+    
+    <div class="row text-center" >
+        <div class="col">
+            <h4>Vos maisons</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col ml-5" *ngFor="let m of bienM">
+
+            <div class="card" style="width: 18rem;">
+                <img src="../../assets/images/Biens/Maison/placeholder.jpeg" class="img-fluid card-img-top img-thumbnail" alt="photo appart">
+                <div class="card-header center" style="font-family: Mademoutain;">
+                    <h4 style="font-family: Mademoutain;">{{m.prix}} €</h4>
+                    <h4 style="font-family: Mademoutain;">{{m.type}} : {{m.surface}} m²</h4>
+                    <p class="card-text">Adresse : {{m.adresse.numero}} {{m.adresse.voie}},
+                        {{m.adresse.codePostal}}
+                        {{m.adresse.ville}}
+                    </p>
+                
+                    <p>
+                        <a data-toggle="collapse" href="#collapseInfosM" role="button">...</a>
+                    </p>
+                </div>
+
+                <div class="card-body center text-center collapse" id="collapseInfosM">
+                    <p *ngIf="m.meuble">Meublé</p>
+                    <p *ngIf="!m.meuble">Non meublé</p>
+                    <p>Nombre de chambres : {{m.nbchambres}}</p>
+                    <p>Classe énergétique : {{m.classeNRJ}}</p>
+                    <p>Disponible le : {{m.dispo | date:'d/M/y'}}</p>
+                </div>
+
+                <div class="card-body center text-center collapse" id="collapseInfosM">
+                    <ul class="list-group ">
+                        <li class="list-group-item" *ngIf="m.accessibilite"><i
+                                class="fab fa-accessible-icon"></i> Handicap Friendly
+                        </li>
+                        <li class="list-group-item" *ngIf="m.cave">Cave</li>
+                        <li class="list-group-item" *ngIf="m.ascenseur">Avec ascenseur
+                        </li>
+                        <li class="list-group-item" *ngIf="!m.ascenseur">Sans ascenseur
+                        </li>
+                        <li class="list-group-item" *ngIf="m.balcon">Balcon</li>
+                        <li class="list-group-item" *ngIf="m.jardin">Jardin</li>
+                        <li class="list-group-item" *ngIf="m.laveVaisselle">Lave-Vaisselle</li>
+                        <li class="list-group-item" *ngIf="m.machineALaver">Machine à laver</li>
+                        <li class="list-group-item" *ngIf="m.salleEau"><i class="fas fa-bath"></i> Salle d'eau
+                        </li>
+                        <li class="list-group-item" *ngIf="m.exposition"><i class="fas fa-sun"></i> Exposition
+                            {{m.exposition}}</li>
+                        <li class="list-group-item" *ngIf="m.transport"><i class="fas fa-train"></i>
+                            {{m.transport}}
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <div class="col">
+            <h4>Vos appartements</h4>
+        </div>
+    </div>
+
+    <div class="row center">
+        <div class="col ml-5" *ngFor="let a of bienA">
+
+            <div class="card" style="width: 18rem;">
+                <img src="../../assets/images/Biens/Apparts/placeholder.jpeg" class="img-fluid card-img-top img-thumbnail" alt="photo appart">
+                <div class="card-header center text-center" style="font-family: Mademoutain;">
+                    <h4 style="font-family: Mademoutain;">{{a.prix}} €</h4>
+                    <h4 style="font-family: Mademoutain;">{{a.type}} : {{a.surface}} m²</h4>
+                    <p class="card-text">Adresse : {{a.adresse.numero}} {{a.adresse.voie}},
+                        {{a.adresse.codePostal}}
+                        {{a.adresse.ville}}
+                    </p>
+                    <p>
+                        <a data-toggle="collapse" href="#collapseInfosA" role="button">...</a>
+                    </p>
+                </div>
+
+                <div class="card-body center text-center collapse" id="collapseInfosA">
+                    <p *ngIf="a.meuble">Meublé</p>
+                    <p *ngIf="!a.meuble">Non meublé</p>
+                    <p>Nombre de chambres : {{a.nbchambres}}</p>
+                    <p>Classe énergétique : {{a.classeNRJ}}</p>
+                    <p>Disponible le : {{a.dispo | date:'d/M/y'}}</p>
+                </div>
+
+                <div class="card-body center text-center collapse" id="collapseInfosA">
+                    <ul class="list-group ">
+                        <li class="list-group-item" *ngIf="a.accessibilite"><i
+                                class="fab fa-accessible-icon"></i> Handicap Friendly
+                        </li>
+                        <li class="list-group-item" *ngIf="a.cave">Cave</li>
+                        <li class="list-group-item" *ngIf="a.ascenseur">Avec ascenseur
+                        </li>
+                        <li class="list-group-item" *ngIf="!a.ascenseur">Sans ascenseur
+                        </li>
+                        <li class="list-group-item" *ngIf="a.balcon">Balcon</li>
+                        <li class="list-group-item" *ngIf="a.jardin">Jardin</li>
+                        <li class="list-group-item" *ngIf="a.laveVaisselle">Lave-Vaisselle</li>
+                        <li class="list-group-item" *ngIf="a.machineALaver">Machine à laver</li>
+                        <li class="list-group-item" *ngIf="a.salleEau"><i class="fas fa-bath"></i> Salle d'eau
+                        </li>
+                        <li class="list-group-item" *ngIf="a.exposition"><i class="fas fa-sun"></i> Exposition
+                            {{a.exposition}}</li>
+                        <li class="list-group-item" *ngIf="a.transport"><i class="fas fa-train"></i>
+                            {{a.transport}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

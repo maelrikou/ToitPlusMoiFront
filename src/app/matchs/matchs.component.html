@@ -1,0 +1,137 @@
+<div class="container">
+
+    <div class="row text-center">
+        <div class="col">
+            <h1 >Vos Matchs</h1>
+        </div>
+    </div>
+
+    <div class="row text-center mt-3 md-3" *ngIf="matchsa[0]">
+        <div class="col">
+            <h4>Appartement</h4>
+        </div>
+    </div>
+
+    <div class="row center">
+
+        <div class="col" *ngFor="let a of matchsa">
+
+            <div class="card text-center" style="width: 18rem;">
+
+                <img src="../../assets/images/placard.jpg" class="card-img-top" alt="photo cabane">
+                <div class="card-header center text-center">
+                    <h3 class="card-title text-center"><b class="aurion">Adresse</b></h3>
+                    <h5 class="card-title">{{a.id.appart.adresse.numero}} {{a.id.appart.adresse.voie}} {{a.id.appart.adresse.adresse}}</h5>
+                    <h5 class="card-title">{{a.id.appart.adresse.codePostal}} {{a.id.appart.adresse.ville}}</h5>
+                </div>
+                <p>
+                    <a class="aurion" data-toggle="collapse" href="#collapseExample" role="button">...</a>
+                </p>
+
+                <div class="card-body center text-center collapse" id="collapseExample">
+                    <h3 class="card-title text-center"><b class="aurion">Propriétaire de l'appartement</b></h3>
+                    <img class="d-block mx-auto" src='{{"../../assets/images/Users/"+a.id.appart.proprio.id+"/"+a.id.appart.proprio.prenom+".jpg"}}' alt="">
+                    <h5 class="card-title p-3">{{a.id.appart.proprio.prenom}}
+                        {{a.id.appart.proprio.nom}}</h5>
+                    <h5 class="card-title"> {{a.id.appart.proprio.mail}}</h5>
+                </div>
+
+                <div class="card-body center text-center collapse" id="collapseExample">
+                    <h3 class="card-title text-center mt-5"><b class="aurion">Autres informations</b></h3>
+                    <div>
+                        <h5 class="card-title p-3" *ngIf="a.id.appart.meuble==true"> Meublé</h5>
+                        <h5 class="card-title" *ngIf="a.id.appart.meuble==false">Non Meublé</h5>
+                        <h5 class="card-title">{{a.id.appart.prix}} € par mois</h5>
+                        <h5 class="card-title">Surface: {{a.id.appart.surface}} m²</h5>
+                        <h5 class="card-title" *ngIf="a.id.appart.classeNRJ!=null">Classe énergétique:
+                            {{a.id.appart.classeNRJ}}</h5>
+                        <h5 class="card-title">Disponible le : {{a.id.appart.dispo | date:'d/M/y'}}</h5>
+                        <h5 class="card-title">Nombre de chambres: {{a.id.appart.nbchambres}}</h5>
+                        <h5 class="card-title" *ngIf="a.id.appart.transport!=null">Transports à proximité:
+                            {{a.id.appart.transport}}</h5>
+                        <h5 class="card-title" *ngIf="a.id.appart.laveVaisselle==true">Lave vaisselle présent <i
+                                src="../../assets/images/laveVaisselle.ico"></i></h5>
+                        <h5 class="card-title" *ngIf="a.id.appart.machineALaver==true">Machine à laver présente</h5>
+                        <h5 class="card-title" *ngIf="a.id.appart.jardin==true">Jardin présent</h5>
+                        <h5 class="card-title" *ngIf="a.id.appart.cave==true">Cave présente</h5>
+                        <h5 class="card-title" *ngIf="a.id.appart.balcon==true">Balcon présent</h5>
+                        <h5 class="card-title" *ngIf="a.id.appart.parking==true">Parking disponible</h5>
+                        <h5 class="card-title" *ngIf="a.id.appart.ascenseur==true">Ascenseur présent</h5>
+                        <h5 class="card-title" *ngIf="a.id.appart.exposition!=null">Exposition:
+                            {{a.id.appart.exposition}}</h5>
+                        <h5 class="card-title" style="color:tomato" *ngIf="a.id.appart.salle_eau==false">! Attention !
+                            Le propriétaire ne certifie pas qu'il y ait une salle d'eau... (vous devriez fuir...)
+                        </h5>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row mt-3 md-3 text-center" *ngIf="matchsm[0]">
+        <div class="col">
+            <h4 >Maisons</h4>
+        </div>
+    </div>
+
+    <div class="row center">
+
+        <div class="col" *ngFor="let m of matchsm">
+
+
+            <div class="card" style=" width: auto;">
+                <img src="../../assets/images/harry-potter-poudlard-sorciers-angleterre.jpg" class="card-img-top"
+                    alt="photo cabane">
+                <div class="card-header center">
+                    <h3 class="card-title text-center"><b class="aurion">Adresse</b></h3>
+                    <h5 class="card-title">{{m.id.maison.adresse.numero}} {{m.id.maison.adresse.voie}}</h5>
+                    <h5 class="card-title">{{m.id.maison.adresse.codePostal}} {{m.id.maison.adresse.ville}}</h5>
+                </div>
+                <p class="aurion">
+                    <a class="aurion " data-toggle="collapse" href="#collapse2" role="button">...</a>
+                </p>
+
+                <div class="card-body center; collapse" id="collapse2">
+                    <h3 class="card-title text-center"><b class="aurion">Propriétaire de l'appartement</b></h3>
+                    <img src='{{"../../assets/images/Users/"+m.id.maison.proprio.id+"/"+m.id.maison.proprio.prenom+".jpg"}}' alt="">
+                    <h5 class="card-title">{{m.id.maison.proprio.prenom}}
+                        {{m.id.maison.proprio.nom}}</h5>
+                    <h5 class="card-title"> {{m.id.maison.proprio.mail}}</h5>
+                </div>
+
+                <div class="card-body center; collapse" id="collapse2">
+                    <h3 class="card-title text-center"><b class="aurion">Autres informations</b></h3>
+                    <div>
+                        <h5 class="card-title" *ngIf="m.id.maison.meuble==true"> Meublé</h5>
+                        <h5 class="card-title" *ngIf="m.id.maison.meuble==false">Non Meublé</h5>
+                        <h5 class="card-title">{{m.id.maison.prix}} € par mois</h5>
+                        <h5 class="card-title">Surface: {{m.id.maison.surface}} m²</h5>
+                        <h5 class="card-title" *ngIf="m.id.maison.classeNRJ!=null">Classe énergétique:
+                            {{m.id.maison.classeNRJ}}</h5>
+                        <h5 class="card-title">Disponible le : {{m.id.maison.dispo | date:'d/M/y'}}</h5>
+                        <h5 class="card-title">Nombre de chambres: {{m.id.maison.nbchambres}}</h5>
+                        <h5 class="card-title">Nombre de pièces: {{m.id.maison.nbpieces}}</h5>
+                        <h5 class="card-title" *ngIf="m.id.maison.transport!=null">Transports à proximité:
+                            {{m.id.maison.transport}}</h5>
+                        <h5 class="card-title" *ngIf="m.id.maison.laveVaisselle==true">Lave vaisselle présent <i
+                                src="../../assets/images/laveVaisselle.ico"></i></h5>
+                        <h5 class="card-title" *ngIf="m.id.maison.machineALaver==true">Machine à laver présente</h5>
+                        <h5 class="card-title" *ngIf="m.id.maison.jardin==true">Jardin présent</h5>
+                        <h5 class="card-title" *ngIf="m.id.maison.cave==true">Cave présente</h5>
+                        <h5 class="card-title" *ngIf="m.id.maison.balcon==true">Balcon présent</h5>
+                        <h5 class="card-title" *ngIf="m.id.maison.parking==true">Parking disponible</h5>
+                        <h5 class="card-title" *ngIf="m.id.maison.exposition!=null">Exposition:
+                            {{m.id.maison.exposition}}</h5>
+                        <h5 class="card-title" style="color:tomato" *ngIf="m.id.maison.salle_eau==false">! Attention !
+                            Le propriétaire ne certifie pas qu'il y ait une salle d'eau... (vous devriez fuir...)
+                        </h5>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
